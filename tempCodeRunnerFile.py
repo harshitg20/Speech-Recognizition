@@ -3,20 +3,15 @@ import threading
 import tkinter as tk
 from gtts import gTTS
 from tkinter import ttk
-import speech_recognition as sr
-from playsound import playsound
 
 
-# Create an instance of Tkinter frame or window
 win= tk.Tk()
 
-# Set the geometry of tkinter frame
 win.geometry("700x450")
 win.title("Real-Time Voice🎙️ Translator🔊")
 icon = tk.PhotoImage(file="icon.png")
 win.iconphoto(False, icon)
 
-# Create labels and text boxes for the recognized and translated text
 input_label = tk.Label(win, text="Recognized Text ⮯")
 input_label.pack()
 input_text = tk.Text(win, height=5, width=50)
@@ -29,8 +24,6 @@ output_text.pack()
 
 blank_space = tk.Label(win, text="")
 blank_space.pack()
-
-# Create a dictionary of language names and codes
 language_codes = {
     "English": "en",
     "Hindi": "hi",
@@ -38,7 +31,6 @@ language_codes = {
 
 language_names = list(language_codes.keys())
 
-# Create dropdown menus for the input and output languages
 
 input_lang_label = tk.Label(win, text="Select Input Language:")
 input_lang_label.pack()
@@ -164,3 +156,6 @@ from deep_translator import GoogleTranslator
 from google.transliteration import transliterate_text
 # Run the Tkinter event loop
 win.mainloop()
+import speech_recognition as sr
+from playsound import playsound
+
