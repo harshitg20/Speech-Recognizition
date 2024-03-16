@@ -6,13 +6,16 @@ from tkinter import ttk
 
 
 
+# Create an instance of Tkinter frame or window
 win= tk.Tk()
 
+# Set the geometry of tkinter frame
 win.geometry("700x450")
 win.title("Real-Time Voice🎙️ Translator🔊")
 icon = tk.PhotoImage(file="icon.png")
 win.iconphoto(False, icon)
 
+# Create labels and text boxes for the recognized and translated text
 input_label = tk.Label(win, text="Recognized Text ⮯")
 input_label.pack()
 input_text = tk.Text(win, height=5, width=50)
@@ -26,6 +29,7 @@ output_text.pack()
 blank_space = tk.Label(win, text="")
 blank_space.pack()
 
+# Create a dictionary of language names and codes
 language_codes = {
     "English": "en",
     "Hindi": "hi",
@@ -33,6 +37,7 @@ language_codes = {
 
 language_names = list(language_codes.keys())
 
+# Create dropdown menus for the input and output languages
 
 input_lang_label = tk.Label(win, text="Select Input Language:")
 input_lang_label.pack()
@@ -121,14 +126,16 @@ def open_about_page():      # about page
     about_window.title("About")
     about_window.iconphoto(False, icon)
 
+    
 
-
+    # Create a text widget to display the about text
     about_text = tk.Text(about_window, height=10, width=50)
     about_text.insert("1.0", """
     A machine learning project that translates voice from one language to another in real time while preserving the tone and emotion of the speaker, and outputs the result in MP3 format. Choose input and output languages from the dropdown menu and start the translation!
     """)
     about_text.pack()
 
+    # Create a "Close" button
     close_button = tk.Button(about_window, text="Close", command=about_window.destroy)
     close_button.pack()
 
@@ -138,9 +145,11 @@ def open_webpage(url):      # Opens a web page in the user's default web browser
 
 
 
+# Create the "Run" button
 run_button = tk.Button(win, text="Start Translation", command=run_translator)
 run_button.place(relx=0.25, rely=0.9, anchor="c")
 
+# Create the "Kill" button
 kill_button = tk.Button(win, text="Kill Execution", command=kill_execution)
 kill_button.place(relx=0.5, rely=0.9, anchor="c")
 
@@ -149,7 +158,7 @@ about_button = tk.Button(win, text="About this project", command=open_about_page
 about_button.place(relx=0.75, rely=0.9, anchor="c")
 from deep_translator import GoogleTranslator
 from google.transliteration import transliterate_text
-# Run the Tkinter event loop
-win.mainloop()
 import speech_recognition as sr
 from playsound import playsound
+# Run the Tkinter event loop
+win.mainloop()
